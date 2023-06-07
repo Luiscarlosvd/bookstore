@@ -1,0 +1,25 @@
+.book-container {
+  width: 90%;
+  margin: 0.5em auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 9.188rem 1.625rem 1.688rem;
+  border: 1px solid #e4e4e4;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.button-remove {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+}
+
+.button-progress {
+  width: 11.5rem;
+  height: 2.063rem;
+}

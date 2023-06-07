@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 4em;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -15,6 +15,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8f7f7;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;;
 }
 
 code {

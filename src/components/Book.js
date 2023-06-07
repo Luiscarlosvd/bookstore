@@ -1,14 +1,14 @@
 import React from 'react'
 import './styles/book.css'
 
-const Book = () => {
+const Book = ({ bookname, author }) => {
   return (
     <div className="book-container">
       <div className="description">
         <div>
             <span>Action</span>
-            <h2>The Hunger Games</h2>
-            <span>Suzanne Colins</span>
+            <h2>{bookname}</h2>
+            <span>{author}</span>
         </div>
         <div>
             <button className="button-remove">Remove</button>

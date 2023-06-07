@@ -4,8 +4,8 @@ import Book from './Book'
 const BooksList = () => {
   return (
     <div>
-      <Book />
-      <Book />
+      <Book bookname="The Hunger Games" author="Suzanne Colins"/>
+      <Book bookname="Dune" author="Frank Herbert"/>
     </div>
   )
 }

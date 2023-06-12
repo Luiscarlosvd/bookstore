@@ -7,20 +7,25 @@ import ButtonAdd from './ButtonAdd';
 
 const AddNewBook = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [author, setAuthor] = useState('');
+  const [formData, setFormData] = useState({ name: '', author: '' });
 
   const addNewBook = (e) => {
     e.preventDefault();
     const book = {
       item_id: uuidv4(),
-      title: name,
-      author,
+      title: formData.name,
+      author: formData.author,
       category: 'Adventure',
     };
     dispatch(addBook(book));
-    setName('');
-    setAuthor('');
+    setFormData({ name: '', author: '' });
+  };
+
+  const handleChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
@@ -30,15 +35,17 @@ const AddNewBook = () => {
         <input
           type="text"
           placeholder="Name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
+          value={formData.name}
+          name="name"
+          onChange={handleChange}
           required
         />
         <input
           type="text"
           placeholder="Author"
-          value={author}
-          onChange={(event) => setAuthor(event.target.value)}
+          value={formData.author}
+          name="author"
+          onChange={handleChange}
           required
         />
         <ButtonAdd />

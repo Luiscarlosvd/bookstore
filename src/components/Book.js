@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/book.css';
 
-const Book = ({ bookname, author }) => (
+const Book = ({ bookname, author, category }) => (
   <div className="book-container">
     <div className="description">
       <div>
-        <span>Action</span>
+        <span>{category}</span>
         <h2>{bookname}</h2>
         <span>{author}</span>
       </div>
@@ -23,6 +23,7 @@ const Book = ({ bookname, author }) => (
 Book.propTypes = {
   bookname: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default Book;

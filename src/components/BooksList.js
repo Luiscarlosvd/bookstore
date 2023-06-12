@@ -9,7 +9,7 @@ const BooksList = () => {
     <div>
       {booksArr.map((book) => (
         <Book
-          key={book.id}
+          key={book.item_id}
           bookname={book.title}
           author={book.author}
           category={book.category}

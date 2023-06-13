@@ -5,27 +5,37 @@ import Book from './Book';
 
 const BooksList = () => {
   const dispatch = useDispatch();
-  const { booksArr } = useSelector((state) => state.book);
+  const { booksArr, status, error } = useSelector((state) => state.book);
 
   useEffect(() => {
-    dispatch(getBooks());
-  }, []);
+    if (status === 'idle') {
+      dispatch(getBooks());
+    }
+  }, [status, dispatch]);
 
-  const books = Object.keys(booksArr).map((key) => {
-    const book = booksArr[key][0];
-    return (
-      <Book
-        key={key}
-        id={key}
-        bookname={book.title}
-        author={book.author}
-        category={book.category}
-      />
-    );
-  });
+  let bookListContent = '';
+  if (status === 'Loading') {
+    bookListContent = <p>Loading...</p>;
+  } else if (status === 'fulfilled') {
+    bookListContent = Object.keys(booksArr).map((key) => {
+      const book = booksArr[key][0];
+      return (
+        <Book
+          key={key}
+          id={key}
+          bookname={book.title}
+          author={book.author}
+          category={book.category}
+        />
+      );
+    });
+  } else {
+    bookListContent = <p>{error}</p>;
+  }
+
   return (
     <div>
-      {books}
+      {bookListContent}
     </div>
   );
 };

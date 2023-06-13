@@ -31,13 +31,20 @@ const booksSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getBooks.fulfilled, (state, action) => {
-      state.booksArr = action.payload;
-    });
+    builder
+      .addCase(getBooks.pending, (state) => {
+        state.status = 'Loading';
+      })
+      .addCase(getBooks.fulfilled, (state, action) => {
+        state.status = 'fulfilled';
+        state.booksArr = action.payload;
+      })
+      .addCase(getBooks.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = action.error.message;
+      });
   },
 });
-
-export const getAllBooks = (state) => state.booksArr;
 
 export const { addBook, removeBook } = booksSlice.actions;
 export default booksSlice.reducer;

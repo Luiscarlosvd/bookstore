@@ -30,6 +30,15 @@ export const postBooks = createAsyncThunk('book/postBooks', async (newBook) => {
   }
 });
 
+export const deleteBook = createAsyncThunk('book/deleteBook', async (id) => {
+  try {
+    const response = await axios.delete(`${API_URL}/${id}`);
+    return response.data;
+  } catch (error) {
+    return error.message;
+  }
+});
+
 const booksSlice = createSlice({
   name: 'book',
   initialState,
@@ -45,9 +54,6 @@ const booksSlice = createSlice({
         author: book.author,
         category: book.category,
       };
-    },
-    removeBook: (state, { payload }) => {
-      state.booksArr = state.booksArr.filter((book) => book.item_id !== payload);
     },
   },
   extraReducers: (builder) => {
@@ -65,6 +71,15 @@ const booksSlice = createSlice({
       })
       .addCase(postBooks.fulfilled, (state) => {
         state.status = 'fulfilled';
+      })
+      .addCase(deleteBook.pending, (state) => {
+        state.status = 'Loading';
+      })
+      .addCase(deleteBook.fulfilled, (state) => {
+        state.status = 'idle';
+      })
+      .addCase(deleteBook.rejected, (state) => {
+        state.status = 'rejected';
       });
   },
 });

@@ -49,16 +49,6 @@ Bookstore Project where users can add and delete books. Built with React and Red
   - React & Redux
 </details>
 
-<details>
-  <summary>Server</summary>
-    - Null
-</details>
-
-<details>
-<summary>Database</summary>
-    - Null
-</details><br>
-
 ### Key Features <a name="key-features"></a>
 
 - **Bookstore structure**

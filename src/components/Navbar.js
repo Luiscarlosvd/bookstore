@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { BsPersonFill } from 'react-icons/bs';
 
 const Navbar = () => (
-  <header className="px-36 py-7 flex justify-between gap-8 items-center">
+  <header className="px-36 py-7 flex justify-between gap-8 items-center border border-gray-200 border-solid">
     <div className="flex items-center gap-4">
       <h1 className="w-60 h-9 mt-3.75 mr-11.75 mb-1.25 font-bold text-3xl text-blue-500">
         Bookstore CMS

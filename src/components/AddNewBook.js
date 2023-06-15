@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addBook, postBooks } from '../redux/books/booksSlice';
-import './styles/addNewBook.css';
 import ButtonAdd from './ButtonAdd';
 
 const AddNewBook = () => {
@@ -30,15 +29,17 @@ const AddNewBook = () => {
   };
 
   return (
-    <div className="addnew-container">
-      <h2>Add a New Book</h2>
-      <form onSubmit={addNewBook}>
+    <div className="w-10/12 m-auto pb-40">
+      <div className="h-0050 bg-gray-200 h-1 w-full" />
+      <h2 className="mt-6 font-montserrat-700 font-bold text-xl tracking-tight text-gray-400">ADD NEW BOOK</h2>
+      <form onSubmit={addNewBook} className="flex gap-8 mt-4">
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Book title"
           value={formData.name}
           name="name"
           onChange={handleChange}
+          className="border w-415 border-solid rounded-md pl-5 py-2 placeholder-slate-300 font-montserrat-400"
           required
         />
         <input
@@ -47,6 +48,7 @@ const AddNewBook = () => {
           value={formData.author}
           name="author"
           onChange={handleChange}
+          className="border w-64 border-solid rounded-md pl-5 py-2 placeholder-slate-300 font-montserrat-400"
           required
         />
         <ButtonAdd />

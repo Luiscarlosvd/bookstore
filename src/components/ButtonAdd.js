@@ -1,10 +1,9 @@
 import React from 'react';
-import './styles/addNewBook.css';
 
 const ButtonAdd = () => (
   <button
     type="submit"
-    className="button-addBook"
+    className="w-48 h-11 rounded-md text-sm px-5 font-montserrat-400 tracking-wider text-white bg-blue-500"
   >
     ADD BOOK
   </button>

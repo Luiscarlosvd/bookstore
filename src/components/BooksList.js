@@ -15,7 +15,7 @@ const BooksList = () => {
 
   let bookListContent = '';
   if (status === 'Loading') {
-    bookListContent = <p>Loading...</p>;
+    bookListContent = <p className="text-center text-lg my-12">Loading...</p>;
   } else if (status === 'fulfilled') {
     bookListContent = Object.keys(booksArr).map((key) => {
       const book = booksArr[key][0];
